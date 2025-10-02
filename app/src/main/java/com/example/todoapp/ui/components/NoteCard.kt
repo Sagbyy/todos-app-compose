@@ -3,6 +3,7 @@ package com.example.todoapp.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +21,8 @@ import com.example.todoapp.models.Note
 
 @Composable
 fun NoteCard(
-    note: Note
+    note: Note,
+    modifier: Modifier = Modifier
 ) {
     val backgroundColor = when(note.colorIndex % 4) {
         0 -> Color(0xFFA00EE3)
@@ -29,10 +31,9 @@ fun NoteCard(
         else -> Color(0xFFE0AAFF)
     }
 
-    Surface(shape = RoundedCornerShape(8.dp), color = backgroundColor) {
-        Column(modifier = Modifier.padding(all = 12.dp)) {
+    Surface(shape = RoundedCornerShape(8.dp), color = backgroundColor, modifier = modifier.height(120.dp)) {
+        Column(modifier = Modifier.padding(all = 12.dp), verticalArrangement = Arrangement.SpaceBetween) {
             Text("${note.title} #${note.id}", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-            Spacer(Modifier.padding(12.dp))
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text("Contenue de la note ${note.id}")
                 Text("Ajoute du texte ici")
