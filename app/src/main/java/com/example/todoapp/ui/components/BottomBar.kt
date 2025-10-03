@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -32,6 +33,7 @@ fun BottomBar(onHome: () -> Unit = {}, onSearch: () -> Unit = {}, onAdd: () -> U
         Box(contentAlignment = Alignment.Center, modifier = Modifier) {
             Row(
                 modifier = Modifier
+                    .padding(vertical = 12.dp)
                     .fillMaxWidth(0.75f)
                     .clip(CircleShape)
                     .background(Color(0xffe6b8ff))
